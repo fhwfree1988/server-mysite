@@ -2,7 +2,7 @@ package my.payroll;
 
 import javax.persistence.*;
 import java.util.Objects;
-
+//https://spring.io/guides/tutorials/react-and-spring-data-rest/
 @Entity
 class Employee {
 
