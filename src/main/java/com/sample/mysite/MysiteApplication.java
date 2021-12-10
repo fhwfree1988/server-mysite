@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 
 //@SpringBootApplication
 @SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
+//@ComponentScan("com.sample.mysite")
 public class MysiteApplication {
 
     public static void main(String[] args) {
