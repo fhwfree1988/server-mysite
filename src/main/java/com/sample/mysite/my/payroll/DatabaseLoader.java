@@ -1,4 +1,4 @@
-package my.payroll;
+package com.sample.mysite.my.payroll;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

@@ -1,4 +1,4 @@
-package my.payroll;
+package com.sample.mysite.my.payroll;
 
 import org.springframework.data.repository.CrudRepository;
 

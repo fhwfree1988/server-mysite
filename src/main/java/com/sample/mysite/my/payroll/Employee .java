@@ -1,4 +1,4 @@
-package my.payroll;
+package com.sample.mysite.my.payroll;
 
 import javax.persistence.*;
 import java.util.Objects;
