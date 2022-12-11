@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class ProductServiceAOP {
 
     //@Before(value = "execution(* com.project.site.Modules.Product.service.ProductService.*(..)) && args(productNo) && args(productName)")
-    @Before(value = "execution(* com.project.site.Modules.Product.service.ProductService.*(..))")
+    @Before(value = "execution(* com.sample.mysite.Modules.Product.service.ProductService.*(..))")
     public void beforeAdvice(JoinPoint joinPoint/*, Long productNo,String productName*/) {
         System.out.println("Before method:" + joinPoint.getSignature());
 
@@ -19,7 +19,7 @@ public class ProductServiceAOP {
     }
 
     //@After(value = "execution(* com.project.site.Modules.Product.service.ProductService.*(..)) && args(productNo) && args(productName)")
-    @After(value = "execution(* com.project.site.Modules.Product.service.ProductService.*(..))")
+    @After(value = "execution(* com.sample.mysite.Modules.Product.service.ProductService.*(..))")
     public void afterAdvice(JoinPoint joinPoint/*, Long productNo,String productName*/) {
         System.out.println("After method:" + joinPoint.getSignature());
 

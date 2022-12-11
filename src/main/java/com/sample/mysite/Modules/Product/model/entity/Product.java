@@ -43,7 +43,7 @@ public class Product {
     private boolean isActive;
 
     @OneToMany(mappedBy = "product",fetch = FetchType.EAGER)
-    private Set<com.project.site.Modules.Product.model.entity.ProductCost> productCostSet;
+    private Set<ProductCost> productCostSet;
 
     /*@Column()
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ONE")

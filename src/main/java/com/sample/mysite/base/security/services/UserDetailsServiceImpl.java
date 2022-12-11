@@ -1,7 +1,7 @@
 package com.sample.mysite.security.services;
 
-import com.project.site.Modules.User.model.entity.User;
-import com.project.site.Modules.User.repository.UserRepository;
+import com.sample.mysite.Modules.User.model.entity.User;
+import com.sample.mysite.Modules.User.repository.UserRepository;
 import com.sample.mysite.base.security.services.UserDetailsImpl;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

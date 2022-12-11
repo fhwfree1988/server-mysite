@@ -1,6 +1,6 @@
 package com.sample.mysite.base.security.jwt;
 
-import com.project.site.base.security.services.UserDetailsImpl;
+import com.sample.mysite.base.security.services.UserDetailsImpl;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

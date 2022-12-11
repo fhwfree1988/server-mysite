@@ -1,13 +1,10 @@
 package com.sample.mysite;
 
-import com.sample.mysite.my.user.User;
-import com.sample.mysite.my.user.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.sample.mysite.config.DataInsertion.RunData;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -38,7 +35,7 @@ public class MysiteApplication/* implements CommandLineRunner */{
     }*/
 
     @Bean
-    public CommandLineRunner loadData(com.project.site.config.DataInsertion.RunData runData){
+    public CommandLineRunner loadData(RunData runData){
         return (args) -> {
             runData.loadData();
 

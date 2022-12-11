@@ -1,7 +1,6 @@
 package com.sample.mysite.config.DataInsertion;
-
-import com.project.site.Modules.Product.model.entity.Product;
-import com.project.site.Modules.Product.repository.ProductRepository;
+import com.sample.mysite.Modules.Product.model.entity.Product;
+import com.sample.mysite.Modules.Product.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -2,8 +2,8 @@ package com.project.site.config;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import com.project.site.base.ErrorResponse;
-import com.project.site.base.FieldError;
+import com.sample.mysite.base.ErrorResponse;
+import com.sample.mysite.base.FieldError;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;

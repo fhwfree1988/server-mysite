@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("api/")
-public class UserController {
+public class UsersController {
 
     @Autowired
-    private UserRepository userRepository;
+    private UsersRepository userRepository;
 
     @GetMapping("users")
-    public List < User > getUsers() {
+    public List <User2> getUsers() {
         return this.userRepository.findAll();
     }
 }
