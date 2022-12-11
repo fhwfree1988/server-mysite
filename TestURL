@@ -1,0 +1,9 @@
+----Auth
+http://localhost:8080/signin/api/auth/signin
+
+--------Test
+http://localhost:8080/api/test/all
+
+http://localhost:8080/api/test/user
+http://localhost:8080/api/test/mod
+http://localhost:8080/api/test/admin

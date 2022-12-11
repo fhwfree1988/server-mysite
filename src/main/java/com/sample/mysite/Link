@@ -1,0 +1,61 @@
+https://www.freecodecamp.org/news/spring-boot-tutorial-build-fast-modern-java-app/
+https://spring.io/guides/gs/accessing-data-mysql/
+https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api
+https://www.baeldung.com/spring-response-entity
+https://stackoverflow.com/questions/67691575/when-should-you-use-configuration-instead-of-service-controller-component-fo
+https://www.baeldung.com/spring-component-repository-service
+https://www.baeldung.com/spring-component-annotation
+https://stackoverflow.com/questions/47109827/mapstruct-mapper-annotation-dont-create-bean
+https://mapstruct.org/
+https://stackoverflow.com/questions/47676369/mapstruct-and-lombok-not-working-together
+-----------------------------------------
+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
+--------------------------------------
+
+@Suppress("unused")
+@Repository
+interface SaleRepository : GenericRepository<Sale>, JpaSpecificationExecutor<Sale>
+JpaRepository vs JpaSpecificationExecutor
+https://spring.io/blog/2011/04/26/advanced-spring-data-jpa-specifications-and-querydsl/
+
+@Modifying
+    @Query("update Sale s Set s.status= :status where s.id=:saleId")
+    fun changeStatus(@Param("saleId") saleId: Long, @Param("status") status: SaleStatus)
+
+    @Query("select s from Sale s where s.isDeleted is null and DATEDIFF(:dat, s.time) = 0")
+    fun findByDate(@Param("dat") date: ZonedDateTime): List<Sale>
+
+    @Query("select s from Sale s where s.isDeleted is null and s.offer.id IN (:offerIds) and s.status not in(:notInTheseStatus) and DATEDIFF(:dat, s.time) = 0")
+    fun findForInfluencerCalendar(
+        @Param("dat") date: ZonedDateTime,
+        offerIds: List<Long>,
+        notInTheseStatus: List<SaleStatus>
+    ): Optional<MutableList<Sale>>
+
+    @Query("select s from Sale s where s.isDeleted is null and s.status <> 'START' AND s.status <> 'PAYMENT' and DATEDIFF(:greaterThan, s.time) < 0")
+    fun customCountFind(greaterThan: ZonedDateTime): Optional<MutableList<Sale>>
+
+    @Query("select s from Sale s where s.isDeleted is null and s.offer.id IN (:offerIds) AND s.status <> 'START' AND s.status <> 'PAYMENT' and DATEDIFF(:greaterThan, s.createTime) < 0")
+    fun customCountFindWithSellerId(offerIds: List<Long>, greaterThan: ZonedDateTime?): Optional<MutableList<Sale>>
+
+    @Query("select count(s) from Sale s where s.isDeleted is null and s.saleReview is not null and s.offer.id = :id")
+    fun findByOfferIdAndSaleReviewNotNull(id: Long): Optional<Long>
+
+    @Query("select s.id from Sale s where s.offer.influencerId=:sellerId")
+    fun findSaleIdsBySellerId(@Param("sellerId") sellerId: Long): List<Long>
+
+    @Query("select s.id from Sale s where s.buyerId=:buyerId")
+    fun findSaleIdsByBuyerId(@Param("buyerId") buyerId: Long): List<Long>
+
+    @Query("select distinct s.buyerId from Sale s where s.id=:saleId")
+    fun findBuyerIdBySaleId(@Param("saleId") saleId: Long): Long?
+
+    @Modifying
+    @Query("update Sale s set s.companyTitle=:title where s.id in (:ids)")
+    fun updateBuyerTitle(@Param("ids") ids: List<Long>, @Param("title") title: String)
+
+    @Modifying
+    @Query("update Sale s set s.influencerTitle=:title where s.id in (:ids)")
+    fun updateSellerTitle(@Param("ids") ids: List<Long>, @Param("title") title: String)
+    @Query("select s from Sale s where s.status <> :status")
+    fun findAllWithNotEqualStatus(status: SaleStatus): List<Sale>
