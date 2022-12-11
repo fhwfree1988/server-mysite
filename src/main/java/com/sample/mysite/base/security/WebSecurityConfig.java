@@ -1,8 +1,7 @@
-package com.project.site.base.security;
+package com.sample.mysite.base.security;
 
-import com.project.site.base.security.jwt.AuthEntryPointJwt;
-import com.project.site.base.security.jwt.AuthTokenFilter;
-import com.project.site.base.security.services.UserDetailsServiceImpl;
+import com.sample.mysite.base.security.jwt.AuthEntryPointJwt;
+import com.sample.mysite.base.security.jwt.AuthTokenFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +23,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
     prePostEnabled = true)
 public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
   @Autowired
-  UserDetailsServiceImpl userDetailsService;
+  com.sample.mysite.security.services.UserDetailsServiceImpl userDetailsService;
 
   @Autowired
   private AuthEntryPointJwt unauthorizedHandler;

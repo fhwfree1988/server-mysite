@@ -1,4 +1,4 @@
-package com.project.site.Modules.Product.model.dto;
+package com.sample.mysite.Modules.Product.model.dto;
 
 import lombok.*;
 

@@ -1,6 +1,6 @@
-package com.project.site.Modules.Reservation.model.dto;
+package com.sample.mysite.Modules.Reservation.model.dto;
 
-import com.project.site.Modules.User.model.entity.User;
+import com.sample.mysite.Modules.User.model.entity.User;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.time.LocalDate;

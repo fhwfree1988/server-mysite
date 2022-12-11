@@ -1,10 +1,10 @@
-package com.project.site.Modules.Product.service;
+package com.sample.mysite.Modules.Product.service;
 
 
-import com.project.site.Modules.Product.model.entity.Product;
-import com.project.site.Modules.Product.model.mapper.ProductMapper;
-import com.project.site.Modules.Product.repository.ProductRepository;
-import com.project.site.Modules.Product.model.dto.ProductDTO;
+import com.sample.mysite.Modules.Product.model.dto.ProductDTO;
+import com.sample.mysite.Modules.Product.model.entity.Product;
+import com.sample.mysite.Modules.Product.model.mapper.ProductMapper;
+import com.sample.mysite.Modules.Product.repository.ProductRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;

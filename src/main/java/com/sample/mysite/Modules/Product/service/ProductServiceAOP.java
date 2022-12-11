@@ -1,4 +1,4 @@
-package com.project.site.Modules.Product.service;
+package com.sample.mysite.Modules.Product.service;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;

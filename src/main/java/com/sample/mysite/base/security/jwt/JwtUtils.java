@@ -1,4 +1,4 @@
-package com.project.site.base.security.jwt;
+package com.sample.mysite.base.security.jwt;
 
 import com.project.site.base.security.services.UserDetailsImpl;
 import io.jsonwebtoken.*;

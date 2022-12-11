@@ -1,4 +1,4 @@
-package com.project.site.base;
+package com.sample.mysite.base;
 
 import java.util.List;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.project.site.Modules.Reservation.model.dto;
+package com.sample.mysite.Modules.Reservation.model.dto;
 
 public class Types {
     public enum AmenityType {

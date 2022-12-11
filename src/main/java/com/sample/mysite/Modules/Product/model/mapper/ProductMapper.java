@@ -1,7 +1,7 @@
-package com.project.site.Modules.Product.model.mapper;
+package com.sample.mysite.Modules.Product.model.mapper;
 
-import com.project.site.Modules.Product.model.entity.Product;
-import com.project.site.Modules.Product.model.dto.ProductDTO;
+import com.sample.mysite.Modules.Product.model.dto.ProductDTO;
+import com.sample.mysite.Modules.Product.model.entity.Product;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

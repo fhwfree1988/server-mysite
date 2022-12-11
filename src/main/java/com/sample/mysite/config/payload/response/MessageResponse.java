@@ -1,4 +1,4 @@
-package com.project.site.config.payload.response;
+package com.sample.mysite.config.payload.response;
 
 public class MessageResponse {
   private String message;

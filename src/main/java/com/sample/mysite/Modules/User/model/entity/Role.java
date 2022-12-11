@@ -1,4 +1,4 @@
-package com.project.site.Modules.User.model.entity;
+package com.sample.mysite.Modules.User.model.entity;
 
 import javax.persistence.*;
 

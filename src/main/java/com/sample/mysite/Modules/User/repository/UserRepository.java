@@ -1,6 +1,7 @@
-package com.project.site.Modules.User.repository;
+package com.sample.mysite.Modules.User.repository;
 
-import com.project.site.Modules.User.model.entity.User;
+
+import com.sample.mysite.Modules.User.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

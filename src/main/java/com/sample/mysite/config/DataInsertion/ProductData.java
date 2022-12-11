@@ -1,4 +1,4 @@
-package com.project.site.config.DataInsertion;
+package com.sample.mysite.config.DataInsertion;
 
 import com.project.site.Modules.Product.model.entity.Product;
 import com.project.site.Modules.Product.repository.ProductRepository;

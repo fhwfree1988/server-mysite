@@ -1,7 +1,7 @@
-package com.project.site.base.security.services;
+package com.sample.mysite.base.security.services;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.project.site.Modules.User.model.entity.User;
+import com.sample.mysite.Modules.User.model.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

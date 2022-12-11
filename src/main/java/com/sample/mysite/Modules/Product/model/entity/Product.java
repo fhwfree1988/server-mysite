@@ -1,4 +1,4 @@
-package com.project.site.Modules.Product.model.entity;
+package com.sample.mysite.Modules.Product.model.entity;
 
 import lombok.*;
 
@@ -43,7 +43,7 @@ public class Product {
     private boolean isActive;
 
     @OneToMany(mappedBy = "product",fetch = FetchType.EAGER)
-    private Set<ProductCost> productCostSet;
+    private Set<com.project.site.Modules.Product.model.entity.ProductCost> productCostSet;
 
     /*@Column()
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ONE")

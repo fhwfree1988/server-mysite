@@ -1,4 +1,4 @@
-package com.project.site.Modules.User.model.entity;
+package com.sample.mysite.Modules.User.model.entity;
 
 import java.time.OffsetDateTime;
 import java.util.HashSet;
@@ -8,8 +8,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import com.sample.mysite.Modules.Reservation.model.entity.Reservation;
 import lombok.*;
-import com.project.site.Modules.Reservation.model.entity.Reservation;
 
 
 @Entity

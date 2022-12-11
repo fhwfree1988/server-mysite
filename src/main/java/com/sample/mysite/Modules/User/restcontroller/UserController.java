@@ -1,10 +1,10 @@
-package com.project.site.Modules.User.restcontroller;
+package com.sample.mysite.Modules.User.restcontroller;
 
 import java.util.List;
 import javax.validation.Valid;
 
-import com.project.site.Modules.User.model.dto.UserDTO;
-import com.project.site.Modules.User.service.UserService;
+import com.sample.mysite.Modules.User.model.dto.UserDTO;
+import com.sample.mysite.Modules.User.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

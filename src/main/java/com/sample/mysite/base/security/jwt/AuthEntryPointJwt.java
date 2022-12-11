@@ -1,4 +1,4 @@
-package com.project.site.base.security.jwt;
+package com.sample.mysite.base.security.jwt;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;

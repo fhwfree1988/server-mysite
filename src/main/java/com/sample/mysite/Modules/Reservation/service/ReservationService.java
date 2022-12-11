@@ -1,14 +1,14 @@
-package com.project.site.Modules.Reservation.service;
+package com.sample.mysite.Modules.Reservation.service;
 
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import com.project.site.Modules.Reservation.model.entity.Reservation;
-import com.project.site.Modules.Reservation.repository.ReservationRepository;
-import com.project.site.Modules.User.model.entity.User;
-import com.project.site.Modules.User.repository.UserRepository;
-import com.project.site.Modules.Reservation.model.dto.ReservationDTO;
+import com.sample.mysite.Modules.Reservation.model.dto.ReservationDTO;
+import com.sample.mysite.Modules.Reservation.model.entity.Reservation;
+import com.sample.mysite.Modules.Reservation.repository.ReservationRepository;
+import com.sample.mysite.Modules.User.model.entity.User;
+import com.sample.mysite.Modules.User.repository.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;

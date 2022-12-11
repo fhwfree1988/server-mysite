@@ -1,13 +1,13 @@
-package com.project.site.Modules.Reservation.model.entity;
+package com.sample.mysite.Modules.Reservation.model.entity;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.OffsetDateTime;
 import javax.persistence.*;
 
-import com.project.site.Modules.User.model.entity.User;
+import com.sample.mysite.Modules.Reservation.model.dto.Types;
+import com.sample.mysite.Modules.User.model.entity.User;
 import lombok.*;
-import com.project.site.Modules.Reservation.model.dto.Types;
 import org.springframework.format.annotation.DateTimeFormat;
 
 

@@ -1,4 +1,4 @@
-package com.project.site.base;
+package com.sample.mysite.base;
 
 import lombok.Getter;
 import lombok.Setter;

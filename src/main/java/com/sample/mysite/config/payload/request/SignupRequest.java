@@ -1,4 +1,4 @@
-package com.project.site.config.payload.request;
+package com.sample.mysite.config.payload.request;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;

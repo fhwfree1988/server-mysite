@@ -1,8 +1,8 @@
-package com.project.site.Modules.Product.restcontroller;
+package com.sample.mysite.Modules.Product.restcontroller;
 
 
-import com.project.site.Modules.Product.model.dto.ProductDTO;
-import com.project.site.Modules.Product.service.ProductService;
+import com.sample.mysite.Modules.Product.model.dto.ProductDTO;
+import com.sample.mysite.Modules.Product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.w3c.dom.stylesheets.LinkStyle;

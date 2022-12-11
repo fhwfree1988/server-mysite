@@ -1,4 +1,4 @@
-package com.project.site.base.security.jwt;
+package com.sample.mysite.base.security.jwt;
 
 import com.project.site.base.security.services.UserDetailsServiceImpl;
 import org.slf4j.Logger;
@@ -19,7 +19,7 @@ import java.io.IOException;
 
 public class AuthTokenFilter extends OncePerRequestFilter {
   @Autowired
-  private JwtUtils jwtUtils;
+  private com.project.site.base.security.jwt.JwtUtils jwtUtils;
   @Autowired
   private UserDetailsServiceImpl userDetailsService;
 

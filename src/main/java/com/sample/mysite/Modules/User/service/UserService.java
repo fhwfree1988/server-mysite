@@ -1,11 +1,11 @@
-package com.project.site.Modules.User.service;
+package com.sample.mysite.Modules.User.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.project.site.Modules.User.model.entity.User;
-import com.project.site.Modules.User.repository.UserRepository;
-import com.project.site.Modules.User.model.dto.UserDTO;
+import com.sample.mysite.Modules.User.model.dto.UserDTO;
+import com.sample.mysite.Modules.User.model.entity.User;
+import com.sample.mysite.Modules.User.repository.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;

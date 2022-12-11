@@ -1,9 +1,9 @@
-package com.project.site.Modules.User.model.dto;
+package com.sample.mysite.Modules.User.model.dto;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.project.site.Modules.Reservation.model.entity.Reservation;
+import com.sample.mysite.Modules.Reservation.model.entity.Reservation;
 import lombok.*;
 
 import java.util.Set;

@@ -1,4 +1,4 @@
-package com.project.site.config.swagger;
+package com.sample.mysite.config.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

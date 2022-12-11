@@ -1,4 +1,4 @@
-package com.project.site.Modules.Product.model.entity;
+package com.sample.mysite.Modules.Product.model.entity;
 
 import lombok.*;
 

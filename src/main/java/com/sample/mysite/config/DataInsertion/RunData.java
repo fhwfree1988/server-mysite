@@ -1,4 +1,4 @@
-package com.project.site.config.DataInsertion;
+package com.sample.mysite.config.DataInsertion;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

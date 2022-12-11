@@ -1,6 +1,6 @@
-package com.project.site.Modules.Reservation.repository;
+package com.sample.mysite.Modules.Reservation.repository;
 
-import com.project.site.Modules.Reservation.model.entity.Reservation;
+import com.sample.mysite.Modules.Reservation.model.entity.Reservation;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

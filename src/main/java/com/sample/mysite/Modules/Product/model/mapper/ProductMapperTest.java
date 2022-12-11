@@ -1,8 +1,8 @@
-package com.project.site.Modules.Product.model.mapper;
+package com.sample.mysite.Modules.Product.model.mapper;
 
-import com.project.site.Modules.Product.model.dto.ProductDTO;
-import com.project.site.Modules.Product.model.entity.Product;
-import com.project.site.base.mapper.EntityMapper;
+import com.sample.mysite.Modules.Product.model.dto.ProductDTO;
+import com.sample.mysite.Modules.Product.model.entity.Product;
+import com.sample.mysite.base.mapper.EntityMapper;
 /*import org.modelmapper.ModelMapper;*/
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.project.site.base.mapper;
+package com.sample.mysite.base.mapper;
 
 import java.util.List;
 
