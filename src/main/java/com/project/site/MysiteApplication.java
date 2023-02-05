@@ -1,6 +1,14 @@
 package com.project.site;
 
+import com.project.site.Modules.CompositRelation.modelTable.ModelTableEntity;
+import com.project.site.Modules.CompositRelation.mainTable.CompositionID;
+import com.project.site.Modules.CompositRelation.mainTable.MainTableEntity;
+import com.project.site.Modules.CompositRelation.mainTable.services.MainTableService;
+import com.project.site.Modules.CompositRelation.modelTable.services.ModelTableService;
+import com.project.site.Modules.CompositRelation.secTable.SecTableEntity;
+import com.project.site.Modules.CompositRelation.secTable.services.SecTableService;
 import com.project.site.config.DataInsertion.RunData;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,6 +27,15 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories("com")
 @EnableAspectJAutoProxy(proxyTargetClass=true)
 public class MysiteApplication/* implements CommandLineRunner */{
+
+    @Autowired
+    MainTableService mainTableService;
+
+    @Autowired
+    ModelTableService modelTableService;
+
+    @Autowired
+    SecTableService secTableService;
 
     public static void main(String[] args) {
         SpringApplication.run(MysiteApplication.class, args);
@@ -39,6 +56,25 @@ public class MysiteApplication/* implements CommandLineRunner */{
         return (args) -> {
             runData.loadData();
 
+            ModelTableEntity modelTable = new ModelTableEntity();
+            modelTable.setId(1000L);
+            modelTable.setName("model table");
+            modelTable = modelTableService.saveModelTable(modelTable);
+
+            CompositionID mainID = new CompositionID();
+            mainID.setId1(1L);
+            mainID.setModelTable(modelTable);
+
+            MainTableEntity mainTable = new MainTableEntity();
+            mainTable.setId(mainID);
+            mainTable.setName("main table");
+            mainTable = mainTableService.saveMainTable(mainTable);
+
+            SecTableEntity secTableEntity = new SecTableEntity();
+            secTableEntity.setMainTable(mainTable);
+            secTableEntity = secTableService.saveSecTable(secTableEntity);
+
+            secTableEntity.getMainTable();
         };
     }
 
