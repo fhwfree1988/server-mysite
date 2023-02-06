@@ -1,10 +1,11 @@
 package com.project.site.Modules.CompositRelation.mainTable;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "main_table")
-public class MainTableEntity {
+public class MainTableEntity implements Serializable {
 
 
     private CompositionID id;
