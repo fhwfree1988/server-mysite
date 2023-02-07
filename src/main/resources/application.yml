@@ -5,7 +5,7 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
-    spring.jpa.show-sql: true
+
 
     #url: ${JDBC_DATABASE_URL:jdbc:h2:mem:my-samples}
     #username: ${JDBC_DATABASE_USERNAME:sa}
@@ -16,6 +16,7 @@ spring:
     validation-query: "SELECT 1"
     validation-query-timeout: 30
   jpa:
+    show-sql: true
     hibernate:
       ddl-auto: update
     open-in-view: false

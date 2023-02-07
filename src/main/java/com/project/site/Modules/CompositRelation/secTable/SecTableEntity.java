@@ -16,7 +16,7 @@ public class SecTableEntity implements Serializable {
     @ManyToOne()
     @JoinColumns(
             {
-                    @JoinColumn(name = "fk1",referencedColumnName = "id1"),
+                    @JoinColumn(name = "fk1",referencedColumnName = "cid"),
                     @JoinColumn(name = "fk2",referencedColumnName = "model_id")
 
             }

@@ -2,6 +2,7 @@ package com.project.site.Modules.CompositRelation.mainTable;
 
 import com.project.site.Modules.CompositRelation.modelTable.ModelTableEntity;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -11,7 +12,9 @@ import java.io.Serializable;
 public class CompositionID implements Serializable {
 
     private Long id1;
+
     private ModelTableEntity modelTable;
+
 
     public Long getId1() {
         return id1;

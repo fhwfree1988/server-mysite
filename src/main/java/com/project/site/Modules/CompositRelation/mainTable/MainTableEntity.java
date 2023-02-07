@@ -20,6 +20,9 @@ public class MainTableEntity implements Serializable {
     }
 
     @EmbeddedId
+    @AttributeOverrides({
+            @AttributeOverride(name = "id1",column = @Column(name = "cid"))
+    })
     public CompositionID getId() {
         return id;
     }

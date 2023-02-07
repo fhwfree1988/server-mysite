@@ -7,7 +7,12 @@ import com.project.site.Modules.CompositRelation.mainTable.services.MainTableSer
 import com.project.site.Modules.CompositRelation.modelTable.services.ModelTableService;
 import com.project.site.Modules.CompositRelation.secTable.SecTableEntity;
 import com.project.site.Modules.CompositRelation.secTable.services.SecTableService;
+import com.project.site.Modules.Product.model.entity.Product;
 import com.project.site.config.DataInsertion.RunData;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.criterion.Projections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -18,6 +23,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import java.util.List;
+
 //@SpringBootApplication
 //@SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
 //@ComponentScan("com.sample.mysite")
@@ -26,7 +36,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan("com")
 @EnableJpaRepositories("com")
 @EnableAspectJAutoProxy(proxyTargetClass=true)
-public class MysiteApplication/* implements CommandLineRunner */{
+public class MysiteApplication /*implements CommandLineRunner*/ {
 
     @Autowired
     MainTableService mainTableService;
@@ -54,7 +64,7 @@ public class MysiteApplication/* implements CommandLineRunner */{
     @Bean
     public CommandLineRunner loadData(RunData runData){
         return (args) -> {
-            runData.loadData();
+            //runData.loadData();
 
             ModelTableEntity modelTable = new ModelTableEntity();
             modelTable.setId(1000L);
@@ -69,14 +79,34 @@ public class MysiteApplication/* implements CommandLineRunner */{
             mainTable.setId(mainID);
             mainTable.setName("main table");
             mainTable = mainTableService.saveMainTable(mainTable);
-
+            mainTableService.crCount();
+            /*
             SecTableEntity secTableEntity = new SecTableEntity();
             secTableEntity.setMainTable(mainTable);
             secTableEntity = secTableService.saveSecTable(secTableEntity);
 
-            secTableEntity.getMainTable();
+            secTableEntity.getMainTable();*/
         };
     }
+
+   /* @Override
+    public void run(String... args) throws Exception {
+        Session session = entityManager.unwrap(Session.class);
+        session.isConnected();
+        Transaction trx = session.beginTransaction();
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<MainTableEntity> criteriaQuery = criteriaBuilder.createQuery(MainTableEntity.class);
+        Criteria criteria = session.createCriteria(MainTableEntity.class);
+
+        criteria = criteria.setProjection(
+                Projections.projectionList()
+                        .add(Projections.groupProperty("id"))
+                        .add(Projections.rowCount()));
+
+        List result = criteria.list();
+        trx.commit();
+        System.out.println(result.get(0));
+    }*/
 
     /*@Bean
     public ModelMapper modelMapper() {
