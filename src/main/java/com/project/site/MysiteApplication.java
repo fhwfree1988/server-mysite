@@ -80,6 +80,7 @@ public class MysiteApplication /*implements CommandLineRunner*/ {
             mainTable.setName("main table");
             mainTable = mainTableService.saveMainTable(mainTable);
             mainTableService.crCount();
+            mainTableService.crJoin();
             /*
             SecTableEntity secTableEntity = new SecTableEntity();
             secTableEntity.setMainTable(mainTable);
