@@ -4,10 +4,7 @@ import com.project.site.Modules.CompositRelation.mainTable.CompositionID;
 import com.project.site.Modules.CompositRelation.mainTable.MainTableEntity;
 import com.project.site.Modules.CompositRelation.modelTable.ModelTableEntity;
 
-import javax.persistence.Embeddable;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Embeddable
@@ -28,7 +25,7 @@ public class SecCompositionID implements Serializable {
     }*/
 
 
-    @OneToOne
+    @ManyToOne
     @JoinColumns(
             {
                     @JoinColumn(name = "fk1",referencedColumnName = "cid"),
@@ -42,7 +39,8 @@ public class SecCompositionID implements Serializable {
         this.mainTable = mainTable;
     }
 
-    @OneToOne
+    /*@OneToOne*/
+    @ManyToOne
     @JoinColumn(name = "model_id",referencedColumnName = "model_id")
     public ModelTableEntity getModelTable() {
         return modelTable;
