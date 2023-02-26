@@ -18,7 +18,6 @@ public class SecTableEntity implements Serializable {
             {
                     @JoinColumn(name = "fk1",referencedColumnName = "cid"),
                     @JoinColumn(name = "fk2",referencedColumnName = "model_id")
-
             }
     )
     @Id

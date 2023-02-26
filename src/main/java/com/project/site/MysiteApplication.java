@@ -66,7 +66,7 @@ public class MysiteApplication /*implements CommandLineRunner*/ {
         return (args) -> {
             //runData.loadData();
 
-            ModelTableEntity modelTable = new ModelTableEntity();
+            /*ModelTableEntity modelTable = new ModelTableEntity();
             modelTable.setId(1000L);
             modelTable.setName("model table");
             modelTable = modelTableService.saveModelTable(modelTable);
@@ -80,7 +80,7 @@ public class MysiteApplication /*implements CommandLineRunner*/ {
             mainTable.setName("main table");
             mainTable = mainTableService.saveMainTable(mainTable);
             mainTableService.crCount();
-            mainTableService.crJoin();
+            mainTableService.crJoin();*/
             /*
             SecTableEntity secTableEntity = new SecTableEntity();
             secTableEntity.setMainTable(mainTable);
