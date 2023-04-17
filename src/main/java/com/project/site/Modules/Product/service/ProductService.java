@@ -10,27 +10,34 @@ import com.project.site.base.exception.BaseRemoteExceptionRegistry;
 import com.project.site.base.mapper.TokenMapper;
 import com.project.site.base.ratelimit.RateLimiterManager;
 import com.project.site.base.ratelimit.TokenListService.TokenEntity;
-import com.project.site.base.ratelimit.TokenListService.TokenListService;
 import com.project.site.base.ratelimit.TokenListService.TokenListServiceImpleHashMap;
 import io.github.bucket4j.Bucket;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class ProductService {
     private final int TOKEN_CONSUME = 1;
+
+    private final EntityManager entityManager;
     private final ProductRepository productRepository;
     private final /*ProductMapperTest*/ ProductMapper productMapper;
     private final RateLimiterManager rateLimiterManager;
     private final /*TokenListService*/TokenListServiceImpleHashMap tokenListService;
     private final TokenMapper tokenMapper;
 
-
-    public ProductService(ProductRepository productRepository, ProductMapper productMapper, RateLimiterManager rateLimiterManager, TokenListServiceImpleHashMap tokenListService, TokenMapper tokenMapper) {
+    public ProductService(EntityManager entityManager, ProductRepository productRepository, ProductMapper productMapper, RateLimiterManager rateLimiterManager, TokenListServiceImpleHashMap tokenListService, TokenMapper tokenMapper) {
+        this.entityManager = entityManager;
         this.productRepository = productRepository;
         this.productMapper = productMapper;
         this.rateLimiterManager = rateLimiterManager;
@@ -85,4 +92,40 @@ public class ProductService {
         }*/
         return product;
     }
+
+    public List<Product> myCriteraProduct(){
+
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Product> cq = cb.createQuery(Product.class);
+        Root<Product> rootEntry = cq.from(Product.class);
+
+
+        Predicate predicateProductName = cb.equal(rootEntry.get("productName"), "pro");
+        Predicate predicateProductName_notNull = cb.isNotNull((rootEntry.get("productName")));
+
+        Predicate predicates = cb.and(predicateProductName, predicateProductName_notNull);
+
+        CriteriaQuery<Product> all = cq.select(rootEntry).where(predicates).orderBy(cb.desc(
+                cb.function(
+                        "substr", String.class,
+                        rootEntry.get("productName"),
+                        cb.literal("4"),
+                        cb.literal("2")
+                )
+        ));
+
+        TypedQuery<Product> allQuery = entityManager.createQuery(all);
+        return allQuery.getResultList();
+    }
+
+    public List<Long> getProduct(){
+
+        String hqlQuery = "select MAX(pc.Cost), p.productName.id, p.isActive,pc.Cost  from Product p inner join ProductCost pc on (p.id = pc.product.id) group by  (p.id,p.productName) having substr(p.n, 3, 2) = '17'";
+        List<Object[]> query = entityManager.createQuery(hqlQuery).getResultList();
+
+        List<Long> productIds = query.stream().map((arraysValue) -> ((Long)(arraysValue)[1])).collect(Collectors.toList());
+
+        return productIds;
+    }
+
 }
