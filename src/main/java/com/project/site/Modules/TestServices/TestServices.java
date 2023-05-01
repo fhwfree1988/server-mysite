@@ -31,7 +31,7 @@ public class TestServices {
         return myProductDto;
     }
 
-    public List<Product> myCriteraProduct(){
+    public List<Product> myCriteraProductByFunction(){
 
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<Product> cq = cb.createQuery(Product.class);
