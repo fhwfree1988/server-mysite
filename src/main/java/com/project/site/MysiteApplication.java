@@ -64,7 +64,7 @@ public class MysiteApplication /*implements CommandLineRunner*/ {
     @Bean
     public CommandLineRunner loadData(RunData runData){
         return (args) -> {
-            //runData.loadData();
+            runData.loadData();
 
             /*ModelTableEntity modelTable = new ModelTableEntity();
             modelTable.setId(1000L);

@@ -1,6 +1,8 @@
 package com.project.site.config.DataInsertion;
 
 import com.project.site.Modules.Product.model.entity.Product;
+import com.project.site.Modules.Product.model.entity.ProductCost;
+import com.project.site.Modules.Product.repository.ProductCostRepository;
 import com.project.site.Modules.Product.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,15 +13,26 @@ public class ProductData {
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    private ProductCostRepository productCostRepository;
+
     public void loadData() {
         if (productRepository.findAll().size() == 0) {
             int count = 0;
             while (count < 10) {
-                Product user = Product.builder().id((long) (count+2))
+
+                Product product = Product.builder().id((long) (count+2))
                         .productName("P_" + count)
                         .isActive(true)
                         .build();
-                productRepository.save(user);
+                product = productRepository.save(product);
+
+                ProductCost productCost = ProductCost.builder()
+                        .product(product)
+                        .Cost(count*20)
+                        .isActive(true)
+                        .build();
+                productCostRepository.save(productCost);
                 count++;
 
             }
