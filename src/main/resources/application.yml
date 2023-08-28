@@ -39,3 +39,6 @@ springdoc:
 app:
   jwtSecret: bezKoderSecretKey
   jwtExpirationMs: 86400000
+
+mytest:
+  val: hello
