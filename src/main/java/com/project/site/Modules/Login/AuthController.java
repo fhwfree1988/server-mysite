@@ -1,10 +1,14 @@
 package com.project.site.Modules.Login;
 
+import com.project.site.Modules.TestAnnotation.JsonSerializationException;
+import com.project.site.Modules.TestAnnotation.ObjectToJsonConverter;
+import com.project.site.Modules.TestAnnotation.PersonA;
 import com.project.site.Modules.User.model.entity.Role;
 import com.project.site.Modules.User.model.entity.RoleType;
 import com.project.site.Modules.User.model.entity.User;
 import com.project.site.Modules.User.repository.RoleRepository;
 import com.project.site.Modules.User.repository.UserRepository;
+import com.project.site.base.annotations.sample.EnableRestCallLogs;
 import com.project.site.base.security.jwt.JwtUtils;
 import com.project.site.base.security.services.UserDetailsImpl;
 import com.project.site.config.payload.request.LoginRequest;
@@ -54,7 +58,8 @@ public class AuthController {
     }
 
     @PostMapping("/signin")
-    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+    @EnableRestCallLogs
+    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) throws JsonSerializationException {
 
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
@@ -66,6 +71,12 @@ public class AuthController {
         List<String> roles = userDetails.getAuthorities().stream()
                 .map(item -> item.getAuthority())
                 .collect(Collectors.toList());
+
+        //Test Annotation By Reflection Api
+        PersonA person = new PersonA("Foad", "HR", "34","My address");
+        ObjectToJsonConverter serializer = new ObjectToJsonConverter();
+        String jsonString = serializer.convertToJson(person);
+        //end Test Annotation
 
         return ResponseEntity.ok(new JwtResponse(jwt,
                 userDetails.getId(),
