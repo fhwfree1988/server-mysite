@@ -53,7 +53,7 @@ public class ObjectToJsonConverter {
         for (Field field : clazz.getDeclaredFields()) {
             field.setAccessible(true);
             if (field.isAnnotationPresent(JsonElement.class)) {
-                jsonElementsMap.put(field.getAnnotation(JsonElement.class).key(), (String) field.get(object));
+                jsonElementsMap.put(getKey(field), (String) field.get(object));
             }
         }
 
@@ -65,6 +65,14 @@ public class ObjectToJsonConverter {
         return "{" + jsonString + "}";
     }
 
+    private String getKey(Field field) {
+        String annotationName = field.getAnnotation(JsonElement.class).key();
+        if(annotationName == null || annotationName.isEmpty())
+            return field.getName();
+
+        return annotationName;
+
+    }
 
 
 }
