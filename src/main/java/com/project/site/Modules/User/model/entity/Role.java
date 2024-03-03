@@ -1,8 +1,12 @@
 package com.project.site.Modules.User.model.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+//import javax.persistence.*;
 
 @Entity
+@Document
 @Table(name = "roles")
 public class Role {
   @Id

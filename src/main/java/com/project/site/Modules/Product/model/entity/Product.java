@@ -1,8 +1,9 @@
 package com.project.site.Modules.Product.model.entity;
 
+import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,7 +11,7 @@ import java.util.Set;
 import java.util.TimeZone;
 
 @Entity
-
+@Document
 /*@Getter
 @Setter*/
 @Data

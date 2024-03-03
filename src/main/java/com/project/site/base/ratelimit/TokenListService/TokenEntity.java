@@ -3,9 +3,9 @@ package com.project.site.base.ratelimit.TokenListService;
 import lombok.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.boot.model.relational.Loggable;
+//import org.hibernate.boot.model.relational.Loggable;
 
-import javax.persistence.*;
+//import javax.persistence.*;
 import java.util.Date;
 
 @Data

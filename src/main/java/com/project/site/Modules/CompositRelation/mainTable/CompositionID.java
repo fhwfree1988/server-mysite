@@ -1,11 +1,14 @@
 package com.project.site.Modules.CompositRelation.mainTable;
 
 import com.project.site.Modules.CompositRelation.modelTable.ModelTableEntity;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+//import javax.persistence.Column;
+//import javax.persistence.Embeddable;
+//import javax.persistence.JoinColumn;
+//import javax.persistence.OneToOne;
 import java.io.Serializable;
 
 @Embeddable

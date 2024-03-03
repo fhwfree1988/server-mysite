@@ -12,16 +12,17 @@ import com.project.site.base.ratelimit.RateLimiterManager;
 import com.project.site.base.ratelimit.TokenListService.TokenEntity;
 import com.project.site.base.ratelimit.TokenListService.TokenListServiceImpleHashMap;
 import io.github.bucket4j.Bucket;
+import jakarta.persistence.EntityManager;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+//import javax.persistence.EntityManager;
+//import javax.persistence.TypedQuery;
+//import javax.persistence.criteria.CriteriaBuilder;
+//import javax.persistence.criteria.CriteriaQuery;
+//import javax.persistence.criteria.Predicate;
+//import javax.persistence.criteria.Root;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -48,11 +49,11 @@ public class ProductService {
     public ProductDTO get(final Long productId){
         TokenEntity tokenEntity = tokenListService.getToken("/product/{id}");
         Bucket bucket = rateLimiterManager.getUserServiceBucket(/*getCurrentUserId()*/"1", tokenMapper.convertTokenModel(tokenEntity));
-
-        if (bucket.tryConsume(TOKEN_CONSUME)) {
+        //for mongo
+        /*if (bucket.tryConsume(TOKEN_CONSUME)) {
             return this.productRepository.findById(productId).map(product -> productMapper.toProductDTO(product))
                     .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        }
+        }*/
         throw BaseRemoteExceptionRegistry.create(BaseRemoteExceptionConstants.STATUS__TOO_MANY_REQUESTS);
 
     }
@@ -85,6 +86,7 @@ public class ProductService {
         product.setId(productDTO.getId());
         product.setProductName(productDTO.getProductName());
         product.setProductNo(productDTO.getProductNo());
+        //for mongo
         /*if (productDTO.getUser() != null && (product.getUser() == null || !product.getUser().getId().equals(productDTO.getUser().getId()))) {
             final User user = userRepository.findById(productDTO.getUser().getId())
                     .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "user not found"));

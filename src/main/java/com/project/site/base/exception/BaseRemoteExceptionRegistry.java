@@ -4,7 +4,7 @@ import com.project.site.base.util.ListOrderedMap;
 import com.project.site.base.util.StringUtil;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
+//import javax.annotation.PostConstruct;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -17,7 +17,7 @@ public class BaseRemoteExceptionRegistry implements BaseRemoteExceptionConstants
     public BaseRemoteExceptionRegistry() {
     }
 
-    @PostConstruct
+   // @PostConstruct
     protected void register() {
         this.register(createTemplateWithBaseMessage(STATUS__BAD_REQUEST, STATUS__BAD_REQUEST, "error400"));
         this.register(createTemplateWithBaseMessage(STATUS__UNAUTHORIZED, STATUS__UNAUTHORIZED, "error401"));

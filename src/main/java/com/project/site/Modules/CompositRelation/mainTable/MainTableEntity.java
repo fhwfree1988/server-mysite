@@ -1,9 +1,13 @@
 package com.project.site.Modules.CompositRelation.mainTable;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+//import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Document
 @Table(name = "main_table")
 public class MainTableEntity implements Serializable {
 

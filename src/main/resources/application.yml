@@ -1,10 +1,19 @@
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/site_project?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=True
-    username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    #MySQL
+    #url: jdbc:mysql://localhost:3306/site_project?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=True
+    #username: root
+    #password: root
+    #driver-class-name: com.mysql.cj.jdbc.Driver
+
+  data:
+    mongodb:
+      #MongoDB
+      url:  mongodb://localhost:27017 #uri: mongodb://yourusername:yourpassword@localhost:27017/yourDB
+      username: root
+      password: root
+      database: site_project
 
 
     #url: ${JDBC_DATABASE_URL:jdbc:h2:mem:my-samples}

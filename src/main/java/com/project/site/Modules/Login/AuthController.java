@@ -15,6 +15,7 @@ import com.project.site.config.payload.request.LoginRequest;
 import com.project.site.config.payload.request.SignupRequest;
 import com.project.site.config.payload.response.JwtResponse;
 import com.project.site.config.payload.response.MessageResponse;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -23,7 +24,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+//import javax.validation.Valid;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -135,7 +136,8 @@ public class AuthController {
         }
 
         user.setRoles(roles);
-        userRepository.save(user);
+        //for mongo
+        //userRepository.save(user);
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }

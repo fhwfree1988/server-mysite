@@ -21,33 +21,41 @@ public class UserService {
     }
 
     public List<UserDTO> findAll() {
-        return userRepository.findAll()
+        //for mongo
+        /*return userRepository.findAll()
                 .stream()
                 .map(user -> mapToDTO(user, new UserDTO()))
-                .collect(Collectors.toList());
+                .collect(Collectors.toList());*/
+        return null;
     }
 
     public UserDTO get(final Long id) {
-        return userRepository.findById(id)
+        //for mongo
+        /*return userRepository.findById(id)
                 .map(user -> mapToDTO(user, new UserDTO()))
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));*/
+        return null;
     }
 
     public Long create(final UserDTO userDTO) {
-        final User user = new User();
+        //for mongo
+        /*final User user = new User();
         mapToEntity(userDTO, user);
-        return userRepository.save(user).getId();
+        return userRepository.save(user).getId();*/
+        return null;
     }
 
     public void update(final Long id, final UserDTO userDTO) {
-        final User user = userRepository.findById(id)
+        //for mongo
+        /*final User user = userRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         mapToEntity(userDTO, user);
-        userRepository.save(user);
+        userRepository.save(user);*/
     }
 
     public void delete(final Long id) {
-        userRepository.deleteById(id);
+        //for mongo
+        /*userRepository.deleteById(id);*/
     }
 
     private UserDTO mapToDTO(final User user, final UserDTO userDTO) {

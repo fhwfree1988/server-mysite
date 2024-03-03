@@ -9,24 +9,27 @@ import com.project.site.Modules.CompositRelation.secTable.SecTableEntity;
 import com.project.site.Modules.CompositRelation.secTable.services.SecTableService;
 import com.project.site.Modules.Product.model.entity.Product;
 import com.project.site.config.DataInsertion.RunData;
-import org.hibernate.Criteria;
+//import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Projections;
+//import org.hibernate.criterion.Projections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
+//import javax.persistence.EntityManager;
+//import javax.persistence.criteria.CriteriaBuilder;
+//import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
 //@SpringBootApplication
@@ -35,9 +38,10 @@ import java.util.List;
 @SpringBootApplication
 @ComponentScan("com")
 @EntityScan("com")
-@EnableJpaRepositories("com")
+@EnableMongoRepositories("com")
+//@EnableJpaRepositories("com")
 @EnableAspectJAutoProxy(proxyTargetClass=true)
-public class MysiteApplication /*implements CommandLineRunner*/ {
+public class MysiteApplication extends SpringBootServletInitializer/*implements CommandLineRunner*/ {
 
     @Autowired
     MainTableService mainTableService;
@@ -49,6 +53,7 @@ public class MysiteApplication /*implements CommandLineRunner*/ {
     SecTableService secTableService;
 
     public static void main(String[] args) {
+        //for mongo
         SpringApplication.run(MysiteApplication.class, args);
     }
 
@@ -134,4 +139,11 @@ public class MysiteApplication /*implements CommandLineRunner*/ {
             reservationRepository.save(reservation);
         };
     }*/
+
+    //added for war
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(MysiteApplication.class);
+    }
 }
+

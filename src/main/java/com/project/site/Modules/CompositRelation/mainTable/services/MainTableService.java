@@ -1,17 +1,21 @@
 package com.project.site.Modules.CompositRelation.mainTable.services;
 
 import com.project.site.Modules.CompositRelation.mainTable.MainTableEntity;
-import org.hibernate.Criteria;
+//import org.hibernate.Criteria;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Projections;
-import org.hibernate.criterion.Restrictions;
+//import org.hibernate.criterion.Projections;
+//import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
+//import javax.persistence.EntityManager;
+//import javax.persistence.criteria.CriteriaBuilder;
+//import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
 @org.springframework.stereotype.Service
@@ -27,33 +31,35 @@ public class MainTableService {
     }
 
     public MainTableEntity saveMainTable(MainTableEntity mainTable){
-        return mainTableRepository.save(mainTable);
+        //for mongo
+        /*return mainTableRepository.save(mainTable);*/
+        return null;
     }
 
     @Transactional
     public String crCount(){
-        Session session = entityManager.unwrap(Session.class);
+        /*Session session = entityManager.unwrap(Session.class);
         session.isConnected();
         //Transaction trx = session.beginTransaction();
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<MainTableEntity> criteriaQuery = criteriaBuilder.createQuery(MainTableEntity.class);
-        Criteria criteria = session.createCriteria(MainTableEntity.class);
+        Criteria criteria = session.createCriteria(MainTableEntity.class);*/
 
         /*criteria = criteria.setProjection(
                 Projections.projectionList()
                         .add(Projections.groupProperty("id"))
                         .add(Projections.rowCount()));*/
-        criteria = criteria.setProjection(Projections.rowCount());
+        /*criteria = criteria.setProjection(Projections.rowCount());
 
         List result = criteria.list();
         //trx.commit();
-        System.out.println(result.get(0));
+        System.out.println(result.get(0));*/
         return "";
     }
 
     @Transactional
     public String crJoin(){
-        Session session = entityManager.unwrap(Session.class);
+        /*Session session = entityManager.unwrap(Session.class);
         session.isConnected();
         //Transaction trx = session.beginTransaction();
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -61,12 +67,11 @@ public class MainTableService {
         Criteria criteria = session.createCriteria(MainTableEntity.class);
 
 
-        /*criteria =*/
-        /*Criteria subCriteria =*/ criteria.createCriteria("id.modelTable");
+        criteria.createCriteria("id.modelTable");
         criteria.add(Restrictions.eq("id.modelTable.id",1001L));
         List result = criteria.list();
         //trx.commit();
-        System.out.println(result.get(0));
+        System.out.println(result.get(0));*/
         return "";
     }
 }

@@ -1,6 +1,8 @@
 package com.project.site.config.payload.request;
 
-import javax.validation.constraints.NotBlank;
+//import javax.validation.constraints.NotBlank;
+
+import jakarta.validation.constraints.NotBlank;
 
 public class LoginRequest {
 	@NotBlank

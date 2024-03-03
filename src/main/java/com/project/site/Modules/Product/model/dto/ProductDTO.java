@@ -1,9 +1,10 @@
 package com.project.site.Modules.Product.model.dto;
 
 import com.project.site.Modules.Product.model.entity.ProductCost;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
-import javax.validation.constraints.NotNull;
+//import javax.validation.constraints.NotNull;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

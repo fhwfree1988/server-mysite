@@ -27,33 +27,41 @@ public class ReservationService {
     }
 
     public List<ReservationDTO> findAll() {
-        return reservationRepository.findAll()
+        //for mongo
+        /*return reservationRepository.findAll()
                 .stream()
                 .map(reservation -> mapToDTO(reservation, new ReservationDTO()))
-                .collect(Collectors.toList());
+                .collect(Collectors.toList());*/
+        return null;
     }
 
     public ReservationDTO get(final Long id) {
-        return reservationRepository.findById(id)
+        //for mongo
+       /* return reservationRepository.findById(id)
                 .map(reservation -> mapToDTO(reservation, new ReservationDTO()))
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));*/
+        return null;
     }
 
     public Long create(final ReservationDTO reservationDTO) {
-        final Reservation reservation = new Reservation();
+        //for mongo
+        /*final Reservation reservation = new Reservation();
         mapToEntity(reservationDTO, reservation);
-        return reservationRepository.save(reservation).getId();
+        return reservationRepository.save(reservation).getId();*/
+        return 1L;
     }
 
     public void update(final Long id, final ReservationDTO reservationDTO) {
-        final Reservation reservation = reservationRepository.findById(id)
+        //for mongo
+        /*final Reservation reservation = reservationRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         mapToEntity(reservationDTO, reservation);
-        reservationRepository.save(reservation);
+        reservationRepository.save(reservation);*/
     }
 
     public void delete(final Long id) {
-        reservationRepository.deleteById(id);
+        //for mongo
+        /*reservationRepository.deleteById(id);*/
     }
 
     private ReservationDTO mapToDTO(final Reservation reservation,
@@ -71,11 +79,12 @@ public class ReservationService {
         reservation.setReservationDate(reservationDTO.getReservationDate());
         reservation.setStartTime(reservationDTO.getStartTime());
         reservation.setEndTime(reservationDTO.getEndTime());
-        if (reservationDTO.getUser() != null && (reservation.getUser() == null || !reservation.getUser().getId().equals(reservationDTO.getUser().getId()))) {
+        //for mongo
+       /* if (reservationDTO.getUser() != null && (reservation.getUser() == null || !reservation.getUser().getId().equals(reservationDTO.getUser().getId()))) {
             final User user = userRepository.findById(reservationDTO.getUser().getId())
                     .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "user not found"));
             reservation.setUser(user);
-        }
+        }*/
         return reservation;
     }
 

@@ -3,8 +3,11 @@ package com.project.site.Modules.CompositRelation.secCompTable;
 import com.project.site.Modules.CompositRelation.mainTable.CompositionID;
 import com.project.site.Modules.CompositRelation.mainTable.MainTableEntity;
 import com.project.site.Modules.CompositRelation.modelTable.ModelTableEntity;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumns;
+import jakarta.persistence.ManyToOne;
 
-import javax.persistence.*;
 import java.io.Serializable;
 
 @Embeddable

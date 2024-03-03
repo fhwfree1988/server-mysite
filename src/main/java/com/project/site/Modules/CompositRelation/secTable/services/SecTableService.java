@@ -1,11 +1,13 @@
 package com.project.site.Modules.CompositRelation.secTable.services;
 
 import com.project.site.Modules.CompositRelation.secTable.SecTableEntity;
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
+//import javax.persistence.EntityManager;
+//import javax.transaction.Transactional;
 
 @Service
 @RequiredArgsConstructor

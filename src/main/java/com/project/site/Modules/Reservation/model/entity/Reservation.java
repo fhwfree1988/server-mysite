@@ -3,15 +3,18 @@ package com.project.site.Modules.Reservation.model.entity;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.OffsetDateTime;
-import javax.persistence.*;
+//import javax.persistence.*;
 
 import com.project.site.Modules.User.model.entity.User;
+import jakarta.persistence.*;
 import lombok.*;
 import com.project.site.Modules.Reservation.model.dto.Types;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
+@Document
 @Getter
 @Setter
 @Builder

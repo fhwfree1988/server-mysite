@@ -1,9 +1,16 @@
 package com.project.site.Modules.CompositRelation.modelTable;
 
-import javax.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+//import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Document
 @Table(name = "model")
 public class ModelTableEntity implements Serializable {
 

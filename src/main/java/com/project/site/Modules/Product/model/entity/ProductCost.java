@@ -1,11 +1,14 @@
 package com.project.site.Modules.Product.model.entity;
 
+import jakarta.persistence.*;
+import jakarta.persistence.GenerationType;
 import lombok.*;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
 import java.time.OffsetDateTime;
 
 @Entity
+@Document
 @Getter
 @Setter
 @Builder
