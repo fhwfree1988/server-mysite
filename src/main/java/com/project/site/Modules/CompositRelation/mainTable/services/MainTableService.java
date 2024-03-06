@@ -31,9 +31,7 @@ public class MainTableService {
     }
 
     public MainTableEntity saveMainTable(MainTableEntity mainTable){
-        //for mongo
-        /*return mainTableRepository.save(mainTable);*/
-        return null;
+        return mainTableRepository.save(mainTable);
     }
 
     @Transactional

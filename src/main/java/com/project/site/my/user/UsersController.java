@@ -19,8 +19,6 @@ public class UsersController {
 
     @GetMapping("users")
     public List <User2> getUsers() {
-        //for mongo
-        /*return this.userRepository.findAll();*/
-        return null;
+        return this.userRepository.findAll();
     }
 }

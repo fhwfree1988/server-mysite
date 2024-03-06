@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
-public interface ProductCostRepository extends org.springframework.data.repository.Repository<ProductCost, Long>/*JpaRepository<ProductCost, Long>*/ {
+public interface ProductCostRepository extends JpaRepository<ProductCost, Long> {
 
 }

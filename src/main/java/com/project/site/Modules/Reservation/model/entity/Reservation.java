@@ -5,7 +5,7 @@ import java.time.LocalTime;
 import java.time.OffsetDateTime;
 //import javax.persistence.*;
 
-import com.project.site.Modules.User.model.entity.User;
+import com.project.site.Modules.User.model.entity.Users;
 import jakarta.persistence.*;
 import lombok.*;
 import com.project.site.Modules.Reservation.model.dto.Types;
@@ -50,7 +50,7 @@ public class Reservation {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private Users user;
 
     @Column(nullable = false, updatable = false)
     private OffsetDateTime dateCreated;

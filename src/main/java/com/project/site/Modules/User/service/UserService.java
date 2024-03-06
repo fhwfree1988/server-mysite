@@ -3,7 +3,7 @@ package com.project.site.Modules.User.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.project.site.Modules.User.model.entity.User;
+import com.project.site.Modules.User.model.entity.Users;
 import com.project.site.Modules.User.repository.UserRepository;
 import com.project.site.Modules.User.model.dto.UserDTO;
 import org.springframework.http.HttpStatus;
@@ -21,57 +21,49 @@ public class UserService {
     }
 
     public List<UserDTO> findAll() {
-        //for mongo
-        /*return userRepository.findAll()
+        return userRepository.findAll()
                 .stream()
                 .map(user -> mapToDTO(user, new UserDTO()))
-                .collect(Collectors.toList());*/
-        return null;
+                .collect(Collectors.toList());
     }
 
     public UserDTO get(final Long id) {
-        //for mongo
-        /*return userRepository.findById(id)
+        return userRepository.findById(id)
                 .map(user -> mapToDTO(user, new UserDTO()))
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));*/
-        return null;
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     public Long create(final UserDTO userDTO) {
-        //for mongo
-        /*final User user = new User();
+        final Users user = new Users();
         mapToEntity(userDTO, user);
-        return userRepository.save(user).getId();*/
-        return null;
+        return userRepository.save(user).getId();
     }
 
     public void update(final Long id, final UserDTO userDTO) {
-        //for mongo
-        /*final User user = userRepository.findById(id)
+        final Users user = userRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         mapToEntity(userDTO, user);
-        userRepository.save(user);*/
+        userRepository.save(user);
     }
 
     public void delete(final Long id) {
-        //for mongo
-        /*userRepository.deleteById(id);*/
+        userRepository.deleteById(id);
     }
 
-    private UserDTO mapToDTO(final User user, final UserDTO userDTO) {
+    private UserDTO mapToDTO(final Users user, final UserDTO userDTO) {
         userDTO.setId(user.getId());
         userDTO.setName(user.getName());
         return userDTO;
     }
 
-    private User mapToEntity(final UserDTO userDTO, final User user) {
+    private Users mapToEntity(final UserDTO userDTO, final Users user) {
         user.setName(userDTO.getName());
         return user;
     }
 
     //Static Methods
-    public static User MapDTOToEntity(UserDTO userDto) {
-        User user = User.builder()
+    public static Users MapDTOToEntity(UserDTO userDto) {
+        Users user = Users.builder()
                 .id(userDto.getId())
                 .name(userDto.getName()).build();
         return user;

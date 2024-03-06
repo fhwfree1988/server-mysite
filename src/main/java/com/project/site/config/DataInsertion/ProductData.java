@@ -17,8 +17,8 @@ public class ProductData {
     private ProductCostRepository productCostRepository;
 
     public void loadData() {
-        //for mongo
-        /*if (productRepository.findAll().size() == 0) {
+
+        if (productRepository.findAll().size() == 0) {
             int count = 0;
             while (count < 10) {
 
@@ -33,12 +33,11 @@ public class ProductData {
                         .Cost(count*20)
                         .isActive(true)
                         .build();
-                //for mongo
                 productCostRepository.save(productCost);
                 count++;
 
             }
-        }*/
+        }
     }
 
 //    public CommandLineRunner loadData(ProductRepository productRepository){

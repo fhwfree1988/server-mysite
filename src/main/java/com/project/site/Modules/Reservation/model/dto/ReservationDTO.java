@@ -1,6 +1,6 @@
 package com.project.site.Modules.Reservation.model.dto;
 
-import com.project.site.Modules.User.model.entity.User;
+import com.project.site.Modules.User.model.entity.Users;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.time.LocalDate;
@@ -32,7 +32,7 @@ public class ReservationDTO {
     private LocalTime endTime;
 
     @NotNull
-    private User user;
+    private Users user;
 
     @NotNull
     private Types.AmenityType amenityType;

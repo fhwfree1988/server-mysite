@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import com.project.site.Modules.Reservation.model.entity.Reservation;
 import com.project.site.Modules.Reservation.repository.ReservationRepository;
-import com.project.site.Modules.User.model.entity.User;
+import com.project.site.Modules.User.model.entity.Users;
 import com.project.site.Modules.User.repository.UserRepository;
 import com.project.site.Modules.Reservation.model.dto.ReservationDTO;
 import org.springframework.http.HttpStatus;
@@ -27,41 +27,33 @@ public class ReservationService {
     }
 
     public List<ReservationDTO> findAll() {
-        //for mongo
-        /*return reservationRepository.findAll()
+        return reservationRepository.findAll()
                 .stream()
                 .map(reservation -> mapToDTO(reservation, new ReservationDTO()))
-                .collect(Collectors.toList());*/
-        return null;
+                .collect(Collectors.toList());
     }
 
     public ReservationDTO get(final Long id) {
-        //for mongo
-       /* return reservationRepository.findById(id)
+        return reservationRepository.findById(id)
                 .map(reservation -> mapToDTO(reservation, new ReservationDTO()))
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));*/
-        return null;
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     public Long create(final ReservationDTO reservationDTO) {
-        //for mongo
-        /*final Reservation reservation = new Reservation();
+        final Reservation reservation = new Reservation();
         mapToEntity(reservationDTO, reservation);
-        return reservationRepository.save(reservation).getId();*/
-        return 1L;
+        return reservationRepository.save(reservation).getId();
     }
 
     public void update(final Long id, final ReservationDTO reservationDTO) {
-        //for mongo
-        /*final Reservation reservation = reservationRepository.findById(id)
+        final Reservation reservation = reservationRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         mapToEntity(reservationDTO, reservation);
-        reservationRepository.save(reservation);*/
+        reservationRepository.save(reservation);
     }
 
     public void delete(final Long id) {
-        //for mongo
-        /*reservationRepository.deleteById(id);*/
+        reservationRepository.deleteById(id);
     }
 
     private ReservationDTO mapToDTO(final Reservation reservation,
@@ -79,12 +71,11 @@ public class ReservationService {
         reservation.setReservationDate(reservationDTO.getReservationDate());
         reservation.setStartTime(reservationDTO.getStartTime());
         reservation.setEndTime(reservationDTO.getEndTime());
-        //for mongo
-       /* if (reservationDTO.getUser() != null && (reservation.getUser() == null || !reservation.getUser().getId().equals(reservationDTO.getUser().getId()))) {
-            final User user = userRepository.findById(reservationDTO.getUser().getId())
+        if (reservationDTO.getUser() != null && (reservation.getUser() == null || !reservation.getUser().getId().equals(reservationDTO.getUser().getId()))) {
+            final Users user = userRepository.findById(reservationDTO.getUser().getId())
                     .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "user not found"));
             reservation.setUser(user);
-        }*/
+        }
         return reservation;
     }
 

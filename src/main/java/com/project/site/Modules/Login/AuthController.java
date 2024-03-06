@@ -5,7 +5,7 @@ import com.project.site.Modules.TestAnnotation.ObjectToJsonConverter;
 import com.project.site.Modules.TestAnnotation.PersonA;
 import com.project.site.Modules.User.model.entity.Role;
 import com.project.site.Modules.User.model.entity.RoleType;
-import com.project.site.Modules.User.model.entity.User;
+import com.project.site.Modules.User.model.entity.Users;
 import com.project.site.Modules.User.repository.RoleRepository;
 import com.project.site.Modules.User.repository.UserRepository;
 import com.project.site.base.annotations.sample.EnableRestCallLogs;
@@ -101,7 +101,7 @@ public class AuthController {
         }
 
         // Create new user's account
-        User user = new User(signUpRequest.getUsername(),
+        Users user = new Users(signUpRequest.getUsername(),
                 signUpRequest.getEmail(),
                 encoder.encode(signUpRequest.getPassword()));
 
@@ -136,8 +136,7 @@ public class AuthController {
         }
 
         user.setRoles(roles);
-        //for mongo
-        //userRepository.save(user);
+        userRepository.save(user);
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }

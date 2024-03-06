@@ -13,8 +13,6 @@ public class ModelTableService {
     }
 
     public ModelTableEntity saveModelTable(ModelTableEntity modelTable){
-        //for mongo
-        /*return modelReposiroty.save(modelTable);*/
-        return null;
+        return modelReposiroty.save(modelTable);
     }
 }

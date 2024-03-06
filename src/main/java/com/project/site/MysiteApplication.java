@@ -53,7 +53,6 @@ public class MysiteApplication extends SpringBootServletInitializer/*implements 
     SecTableService secTableService;
 
     public static void main(String[] args) {
-        //for mongo
         SpringApplication.run(MysiteApplication.class, args);
     }
 

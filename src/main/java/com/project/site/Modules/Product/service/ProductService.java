@@ -5,6 +5,7 @@ import com.project.site.Modules.Product.model.entity.Product;
 import com.project.site.Modules.Product.model.mapper.ProductMapper;
 import com.project.site.Modules.Product.repository.ProductRepository;
 import com.project.site.Modules.Product.model.dto.ProductDTO;
+import com.project.site.Modules.User.model.entity.Users;
 import com.project.site.base.exception.BaseRemoteExceptionConstants;
 import com.project.site.base.exception.BaseRemoteExceptionRegistry;
 import com.project.site.base.mapper.TokenMapper;
@@ -49,11 +50,10 @@ public class ProductService {
     public ProductDTO get(final Long productId){
         TokenEntity tokenEntity = tokenListService.getToken("/product/{id}");
         Bucket bucket = rateLimiterManager.getUserServiceBucket(/*getCurrentUserId()*/"1", tokenMapper.convertTokenModel(tokenEntity));
-        //for mongo
-        /*if (bucket.tryConsume(TOKEN_CONSUME)) {
+        if (bucket.tryConsume(TOKEN_CONSUME)) {
             return this.productRepository.findById(productId).map(product -> productMapper.toProductDTO(product))
                     .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        }*/
+        }
         throw BaseRemoteExceptionRegistry.create(BaseRemoteExceptionConstants.STATUS__TOO_MANY_REQUESTS);
 
     }
@@ -81,18 +81,17 @@ public class ProductService {
 //
 //    }
 
-    private Product mapToEntity(final ProductDTO productDTO,
+    /*private Product mapToEntity(final ProductDTO productDTO,
                                 final Product product) {
         product.setId(productDTO.getId());
         product.setProductName(productDTO.getProductName());
         product.setProductNo(productDTO.getProductNo());
-        //for mongo
-        /*if (productDTO.getUser() != null && (product.getUser() == null || !product.getUser().getId().equals(productDTO.getUser().getId()))) {
-            final User user = userRepository.findById(productDTO.getUser().getId())
+        if (productDTO.getUser() != null && (product.getUser() == null || !product.getUser().getId().equals(productDTO.getUser().getId()))) {
+            final Users user = userRepository.findById(productDTO.getUser().getId())
                     .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "user not found"));
             product.setUser(user);
-        }*/
+        }
         return product;
-    }
+    }*/
 
 }

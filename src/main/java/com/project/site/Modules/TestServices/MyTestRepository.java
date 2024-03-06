@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository("mytestrepository")
-public interface MyTestRepository extends org.springframework.data.repository.Repository<Product, Long>/*JpaRepository<Product, Long>*/ {
+public interface MyTestRepository extends JpaRepository<Product, Long> {
     @Query(nativeQuery = true, value = "Select  p.id ,p.product_name as productName from product as p where p.product_name like %:#{#product.productName}% ORDER BY productName")
     List<MyProductI> getProductBy(@Param("product") Product product);
 }

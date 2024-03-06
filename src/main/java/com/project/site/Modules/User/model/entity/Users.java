@@ -20,8 +20,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-//@Table(name = "users")
-public class User {
+@Table(name = "user")
+public class Users {
 
     /*@Id
     @Column(nullable = false, updatable = false)
@@ -64,7 +64,7 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-    public User(String username, String email, String password) {
+    public Users(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
