@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 //import javax.persistence.Table;
 
 @Entity
-@Document
+//@Document
 @Table(name = "user2")
 public class User2 {
 

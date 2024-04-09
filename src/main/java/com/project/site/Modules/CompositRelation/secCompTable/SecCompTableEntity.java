@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.io.Serializable;
 
 @Entity
-@Document
+//@Document
 @Table(name = "sec_table_comp")
 public class SecCompTableEntity implements Serializable {
 

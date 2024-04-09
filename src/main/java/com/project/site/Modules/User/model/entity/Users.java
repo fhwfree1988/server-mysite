@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Entity
-@Document
+//@Document
 @Getter
 @Setter
 @Builder

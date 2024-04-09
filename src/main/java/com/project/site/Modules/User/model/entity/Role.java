@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 //import javax.persistence.*;
 
 @Entity
-@Document
+//@Document
 @Table(name = "roles")
 public class Role {
   @Id

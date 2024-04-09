@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.io.Serializable;
 
 @Entity
-@Document
+//@Document
 @Table(name = "model")
 public class ModelTableEntity implements Serializable {
 

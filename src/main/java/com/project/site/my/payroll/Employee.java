@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Objects;
 //https://spring.io/guides/tutorials/react-and-spring-data-rest/
 @Entity
-@Document
+//@Document
 public class Employee {
 
     private @Id /*@GeneratedValue*/@GeneratedValue(strategy = GenerationType.IDENTITY)  Long id;

@@ -11,7 +11,7 @@ import java.util.Set;
 import java.util.TimeZone;
 
 @Entity
-@Document
+//@Document
 /*@Getter
 @Setter*/
 @Data

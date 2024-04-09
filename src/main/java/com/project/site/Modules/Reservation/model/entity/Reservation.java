@@ -14,7 +14,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
-@Document
+//@Document
 @Getter
 @Setter
 @Builder

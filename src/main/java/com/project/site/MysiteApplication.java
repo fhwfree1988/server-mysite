@@ -38,8 +38,8 @@ import java.util.List;
 @SpringBootApplication
 @ComponentScan("com")
 @EntityScan("com")
-@EnableMongoRepositories("com")
-//@EnableJpaRepositories("com")
+//@EnableMongoRepositories("com")
+@EnableJpaRepositories("com")
 @EnableAspectJAutoProxy(proxyTargetClass=true)
 public class MysiteApplication extends SpringBootServletInitializer/*implements CommandLineRunner*/ {
 
