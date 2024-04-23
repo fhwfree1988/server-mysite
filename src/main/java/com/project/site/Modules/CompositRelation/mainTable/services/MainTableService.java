@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 //import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
-@org.springframework.stereotype.Service
+//@org.springframework.stereotype.Service
 public class MainTableService {
 
 
@@ -30,9 +30,9 @@ public class MainTableService {
         this.mainTableRepository = mainTableRepository;
     }
 
-    public MainTableEntity saveMainTable(MainTableEntity mainTable){
+    /*public MainTableEntity saveMainTable(MainTableEntity mainTable){
         return mainTableRepository.save(mainTable);
-    }
+    }*/
 
     @Transactional
     public String crCount(){

@@ -7,5 +7,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SecTableRepository extends CrudRepository<SecTableEntity, MainTableEntity> {
+public interface SecTableRepository extends CrudRepository<SecTableEntity, Long/*MainTableEntity*/> {
 }

@@ -2,13 +2,12 @@ package com.project.site.Modules.CompositRelation.secTable;
 
 import com.project.site.Modules.CompositRelation.mainTable.MainTableEntity;
 import jakarta.persistence.*;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
 
-@Entity
+//@Entity
 //@Document
-@Table(name = "sec_table")
+//@Table(name = "sec_table")
 public class SecTableEntity implements Serializable {
 
 

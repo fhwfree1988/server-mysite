@@ -10,7 +10,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import com.project.site.Modules.Reservation.model.entity.Reservation;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Entity

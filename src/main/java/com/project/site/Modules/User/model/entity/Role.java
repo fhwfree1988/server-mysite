@@ -1,7 +1,6 @@
 package com.project.site.Modules.User.model.entity;
 
 import jakarta.persistence.*;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 //import javax.persistence.*;
 

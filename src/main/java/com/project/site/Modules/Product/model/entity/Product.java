@@ -2,7 +2,6 @@ package com.project.site.Modules.Product.model.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

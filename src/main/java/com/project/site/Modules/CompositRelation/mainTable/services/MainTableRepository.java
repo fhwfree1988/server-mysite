@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.Repository;
 
 
-public interface MainTableRepository extends JpaRepository<MainTableEntity, CompositionID> {
+public interface MainTableRepository/* extends JpaRepository<MainTableEntity, CompositionID> */{
 
 }

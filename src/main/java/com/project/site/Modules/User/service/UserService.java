@@ -21,10 +21,13 @@ public class UserService {
     }
 
     public List<UserDTO> findAll() {
-        return userRepository.findAll()
+        return null;
+
+        //for update dependency
+        /*return userRepository.findAll()
                 .stream()
                 .map(user -> mapToDTO(user, new UserDTO()))
-                .collect(Collectors.toList());
+                .collect(Collectors.toList());*/
     }
 
     public UserDTO get(final Long id) {

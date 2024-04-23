@@ -1,15 +1,24 @@
 package com.project.site.base.concurrent;
 
+
+
+
 import groovy.lang.Singleton;
 
 import java.util.concurrent.locks.ReentrantLock;
 
-@Singleton
+
 public class SingletonReduction {
 
-    private static ReentrantLock lock = new ReentrantLock();
+    private static SingletonReduction instance = null;
+    public static SingletonReduction factory(){
+        if(instance == null)
+            instance = new SingletonReduction();
+        return instance;
+    }
+    private ReentrantLock lock = new ReentrantLock();
     private static int counter = 0;
-    public static void perform (){
+    public void perform (){
         lock.lock();
         try {
             // Critical section here

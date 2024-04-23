@@ -10,7 +10,7 @@ import jakarta.persistence.ManyToOne;
 
 import java.io.Serializable;
 
-@Embeddable
+//@Embeddable
 public class SecCompositionID implements Serializable {
 
     //private CompositionID compositionID;

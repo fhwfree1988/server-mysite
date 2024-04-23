@@ -43,14 +43,14 @@ import java.util.List;
 @EnableAspectJAutoProxy(proxyTargetClass=true)
 public class MysiteApplication extends SpringBootServletInitializer/*implements CommandLineRunner*/ {
 
-    @Autowired
+   /* @Autowired
     MainTableService mainTableService;
 
     @Autowired
     ModelTableService modelTableService;
 
     @Autowired
-    SecTableService secTableService;
+    SecTableService secTableService;*/
 
     public static void main(String[] args) {
         SpringApplication.run(MysiteApplication.class, args);

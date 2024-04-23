@@ -2,6 +2,7 @@ package com.project.site.base.security.services;
 
 import com.project.site.Modules.User.model.entity.Users;
 import com.project.site.Modules.User.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

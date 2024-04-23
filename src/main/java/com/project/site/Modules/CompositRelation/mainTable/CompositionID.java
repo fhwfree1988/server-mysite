@@ -11,7 +11,7 @@ import jakarta.persistence.OneToOne;
 //import javax.persistence.OneToOne;
 import java.io.Serializable;
 
-@Embeddable
+//@Embeddable
 public class CompositionID implements Serializable {
 
     private Long id1;
