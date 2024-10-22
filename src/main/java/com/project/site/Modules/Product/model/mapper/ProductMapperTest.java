@@ -3,13 +3,14 @@ package com.project.site.Modules.Product.model.mapper;
 import com.project.site.Modules.Product.model.dto.ProductDTO;
 import com.project.site.Modules.Product.model.entity.Product;
 import com.project.site.base.mapper.EntityMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 /*import org.modelmapper.ModelMapper;*/
 
 import java.util.List;
 public class ProductMapperTest implements EntityMapper<ProductDTO, Product> {
     /*@Autowired
-    private ModelMapper modelMapper;*/
-
+    private ModelMapper modelMapper;
+*/
     @Override
     public Product toEntity(ProductDTO dto) {
       /*  Product product = modelMapper.map(dto, Product.class);
